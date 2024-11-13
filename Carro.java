@@ -11,6 +11,24 @@ public class Carro implements Climatizacion{
     boolean ecoVentilacion = false;
     boolean desempanador = false;
 
+    public boolean getEncendido(){
+        return encendido;
+    }public int getTemperaturaVentilacion(){
+        return temperaturaVentilacion;
+    }public int getTemperaturaAsientos(){
+        return temperaturaAsientos;
+    }public short getNivelVentilacion(){
+        return nivelVentilacion;
+    }public short getNivelVentilacionAsiento(){
+        return nivelVentilacionAsiento;
+    }public String getVentilacionDireccional(){
+        return ventilacionDireccional;
+    }public boolean getEcoVentilacion(){
+        return ecoVentilacion;
+    }public boolean getDesempanador(){
+        return desempanador;
+    }
+
     @Override
     public String encendido(boolean estado) {
         //throw new UnsupportedOperationException("Not supported yet.");
