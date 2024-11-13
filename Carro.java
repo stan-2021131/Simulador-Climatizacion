@@ -29,6 +29,25 @@ public class Carro implements Climatizacion{
         return desempanador;
     }
 
+    public void setEncendido(boolean encendido) {
+        this.encendido = encendido;
+    }public void setTemperaturaVentilacion(int temperaturaVentilacion) {
+        this.temperaturaVentilacion = temperaturaVentilacion;
+    }public void setTemperaturaAsientos(int temperaturaAsientos) {
+        this.temperaturaAsientos = temperaturaAsientos;
+    }public void setNivelVentilacion(short nivelVentilacion) {
+        this.nivelVentilacion = nivelVentilacion;
+    }public void setNivelVentilacionAsiento(short nivelVentilacionAsiento) {
+        this.nivelVentilacionAsiento = nivelVentilacionAsiento;
+    } public void setVentilacionDireccional(String ventilacionDireccional) {
+        this.ventilacionDireccional = ventilacionDireccional;
+    }public void setEcoVentilacion(boolean ecoVentilacion) {
+        this.ecoVentilacion = ecoVentilacion;
+    }public void setDesempanador(boolean desempanador) {
+        this.desempanador = desempanador;
+    }
+
+
     @Override
     public String encendido(boolean estado) {
         //throw new UnsupportedOperationException("Not supported yet.");
@@ -59,9 +78,15 @@ public class Carro implements Climatizacion{
     public String nivelVentilacion(int op, int subOp) {
         //throw new UnsupportedOperationException("Not supported yet.");
         if (!encendido) return "Error: el sistema de climatización está apagado.";
-        if (op < 1 || subOp > 3) return "Nivel de ventilación inválido. Seleccione entre 1 y 3.";
-        this.nivelVentilacion = (short) (ecoVentilacion ? Math.max(1, op - 1) : op);
-        return "Nivel de ventilación ajustado a: " + nivelVentilacion;
+        if (op < 1 || op > 3) return "Nivel de ventilación inválido. Seleccione entre 1 y 3.";
+        this.nivelVentilacion = (short) op;
+        switch (subOp) {
+            case 1: ventilacionDireccional = "Parabrisas"; break;
+            case 2: ventilacionDireccional = "Frontal"; break;
+            case 3: ventilacionDireccional = "Pies"; break;
+            default: return "Opción de distribución inválida.";
+        }
+        return "Nivel de ventilación ajustado a: " + nivelVentilacion + "Distribución de aire ajustada a: " + ventilacionDireccional;
     }
 
     @Override
