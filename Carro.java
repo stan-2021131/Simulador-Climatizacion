@@ -1,5 +1,4 @@
 
-import java.util.List;
 
 public class Carro implements Climatizacion{
     boolean encendido = false;
@@ -95,7 +94,7 @@ public class Carro implements Climatizacion{
     }
 
     @Override
-    public List<Registro> historialMantenimiento() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public String historialMantenimiento(Registro r) {
+        return "Mantenimiento hecho el " + r.getFechaCambio() + ", el cambio hecho fue: " + r.getCambio();
     }
 }
